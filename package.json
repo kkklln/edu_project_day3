@@ -1,7 +1,7 @@
 {
-  "name": "ai-sentiment-insight-backend",
+  "name": "ai-sentiment-insight",
   "version": "1.0.0",
-  "description": "AI Sentiment Insight Backend Server",
+  "description": "AI Sentiment Insight 통합 웹 서비스",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

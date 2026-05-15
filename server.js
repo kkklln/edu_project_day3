@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-const analyzeRouter = require('./routes/analyze');
+const analyzeRouter = require('./src/routes/analyze');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,14 +10,10 @@ const PORT = process.env.PORT || 3000;
 // 미들웨어 설정
 app.use(cors()); // 모든 도메인에서의 요청 허용 (실제 배포시 제한 필요)
 app.use(express.json()); // JSON 본문 파싱
+app.use(express.static('public')); // public 폴더의 프론트엔드 정적 파일 서빙
 
 // 라우터 연결
 app.use('/api', analyzeRouter);
-
-// 기본 경로 확인용
-app.get('/', (req, res) => {
-  res.send('AI Sentiment Insight Server is running!');
-});
 
 // 서버 시작
 app.listen(PORT, () => {

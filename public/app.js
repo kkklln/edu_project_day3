@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const sentimentInput = document.getElementById('sentiment-input');
     const loadingOverlay = document.getElementById('loading-overlay');
     const resultModal = document.getElementById('result-modal');
-    
+
     // Result elements
     const resSentiment = document.getElementById('res-sentiment');
     const resConfidenceText = document.getElementById('res-confidence-text');
     const resConfidenceBar = document.getElementById('res-confidence-bar');
     const resReason = document.getElementById('res-reason');
-    
+
     // Close buttons
     const closeBtns = document.querySelectorAll('.close-btn, .close-modal-btn');
 
