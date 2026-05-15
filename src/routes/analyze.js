@@ -48,14 +48,28 @@ router.post('/analyze', async (req, res) => {
     const encryptedReason = encrypt(analysisResult.reason);
 
     // 3. Supabase에 분석 결과 저장
+
+    // - Supabase에 text, reasoning 암호화후 저장
+    // const { data, error } = await supabase
+    //   .from('sentiment_logs')
+    //   .insert([
+    //     {
+    //       input_text: encryptedInput,
+    //       sentiment: analysisResult.sentiment,
+    //       confidence: analysisResult.confidence,
+    //       reason: encryptedReason
+    //     }
+    //   ]);
+
+    // Supabase에 text, reasoning 평문 저장
     const { data, error } = await supabase
       .from('sentiment_logs')
       .insert([
         {
-          input_text: encryptedInput,
+          input_text: text,
           sentiment: analysisResult.sentiment,
           confidence: analysisResult.confidence,
-          reason: encryptedReason
+          reason: analysisResult.reason
         }
       ]);
 
